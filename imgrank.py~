@@ -1,4 +1,3 @@
-
 """ Dem images zomg """
 from sklearn.datasets import fetch_lfw_people as LFW
 from skimage.filter import threshold_otsu
@@ -27,7 +26,7 @@ print len(grayimg2)
 
 #Printing as gray
 pl.gray()
-  
+
 
 #First dataset pictures
 for im in grayimg1:
