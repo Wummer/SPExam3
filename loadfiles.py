@@ -14,18 +14,21 @@ for img in files:
 print len(grayimg)
    
 i=0
-pl.gray()
+pl.gray() #don't use color for showing images 
+axis=('off')
+ 
 for gim in grayimg:
+    print grayimg
     pl.subplot(241+i)
-    i += 1
+   # i += 1
     pl.imshow(gim)
 
 pl.show()
-
-# hist(im.flatten()256)
 """
+# hist(im.flatten()256)
 
-pl.gray() #don't use color for showing images 
+
+pl.gray()
 pl.figure()
 pl.imshow(im)
 pl.show()
