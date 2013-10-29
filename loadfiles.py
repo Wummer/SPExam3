@@ -1,20 +1,32 @@
 from PIL import Image
-from pylab import *
+import pylab as pl
 import glob
 import numpy as np
 
+
 # read image to array and convert to grayscale
-#files = glob.glob["Images/*.jpg"]
+files = glob.glob("Images/*")
 
-#for img in files:
+grayimg=[]
+for img in files:
+    im = np.array(Image.open(img).convert('L'))
+    grayimg.append(im)
+print len(grayimg)
+   
+i=0
+pl.gray()
+for gim in grayimg:
+    pl.subplot(241+i)
+    i += 1
+    pl.imshow(gim)
 
-im = np. array(Image.open('empire.jpg').convert('L'))
+pl.show()
 
-hist(im.flatten()256)
+# hist(im.flatten()256)
+"""
 
-gray() #don't use color for showing images 
-
-figure()
-
-imshow(im)
-show()
+pl.gray() #don't use color for showing images 
+pl.figure()
+pl.imshow(im)
+pl.show()
+"""
