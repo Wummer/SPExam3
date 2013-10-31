@@ -26,9 +26,8 @@ ii = 0
 
 ## Sklearn dataset with faces ##
 
-#sorting the faces according to the mean
+#sorting the faces according to the mean - darkest first, brigtest last
 
-#Greyfaces because Anders wants it ...
 ims = LFW(min_faces_per_person=20)
 greyfaces = ims.images[:8]
 greyfaces = sorted(greyfaces,key=np.mean)
@@ -38,9 +37,7 @@ for g in greyfaces:
 	ii+=1
 	pl.imshow(g)
 	pl.axis('off')
-
 pl.show()
-
 
 ## 2 datasets of random images ##
 #Splitting the datasets into 2 parts
@@ -56,7 +53,6 @@ for img in files[8:]:
 #Sorting the pictures by their sum -> darkest image first and brightest last
 grayimg1 = sorted(grayimg1,key=np.sum)
 grayimg2 = sorted(grayimg2,key=np.sum)
-
 
 
 #First dataset pictures
