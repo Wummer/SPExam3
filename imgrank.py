@@ -1,7 +1,9 @@
 from PIL import Image
+from sklearn.datasets import fetch_lfw_people as LFW
 import glob
 import matplotlib.pyplot as pl
 import numpy as np
+
 
 # read image to array and convert to grayscale
 files = glob.glob("data/*/*.jpg")
@@ -11,6 +13,7 @@ grayimg1=[]
 grayimg2=[]
 i = 0
 s = 0
+ii = 0
 
 #Splitting the datasets into 2 parts
 for img in files[:8]:
@@ -47,3 +50,19 @@ for gim in grayimg2:
 	pl.axis('off')
 
 pl.show()
+
+
+#Greyfaces because Anders wants it ...
+#No report on this, but it is exactly the same as the previous two ...
+ims = LFW(min_faces_per_person=20)
+greyfaces = ims.images[:8]
+greyfaces = sorted(greyfaces,key=np.mean)
+
+for g in greyfaces:
+	pl.subplot(241+ii)
+	ii+=1
+	pl.imshow(g)
+	pl.axis('off')
+
+pl.show()
+
